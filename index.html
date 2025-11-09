@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>给邓怡轩的专属祝福</title>
+  <link rel="icon" type="image/x-icon" href="image/icon.png">
+  <script src="https://cdn.aliyuncs.com/tailwindcss/3.4.1/tailwind.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"  rel="stylesheet">
+  
+  <!-- 配置Tailwind自定义颜色和字体 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#e63946',
+            secondary: '#f1faee',
+            accent: '#457b9d',
+          },
+          fontFamily: {
+            fzxk: ['"FZXingKai-S04S"', '"方正正行楷简体"', 'STXingkai', 'serif'],
+            heiti: ['"SimHei"', '"Microsoft YaHei"', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      }
+      .modal-enter {
+        animation: modalFadeIn 0.4s ease forwards;
+      }
+      @keyframes modalFadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .text-fade-in {
+        animation: textFadeIn 1.5s ease forwards;
+        opacity: 0;
+      }
+      @keyframes textFadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .image-btn {
+        transition: opacity 0.3s ease;
+        opacity: 0.7;
+      }
+      .image-btn:hover {
+        opacity: 1;
+      }
+      .photo-container {
+        position: relative;
+        width: clamp(180px, 35vw, 320px);
+        height: clamp(180px, 35vw, 320px);
+      }
+      .photo-fade {
+        animation: photoFade 0.5s ease forwards;
+      }
+      @keyframes photoFade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      /* 贺卡统弹窗背景图样式 */
+      .modal-bg-image {
+        background-image: url('image/card.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      /* 正方形贺卡封面核心样式 */
+      .card-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card-wrapper {
+        width: 100%;
+        aspect-ratio: 1/1; /* 强制正方形比例 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative; /* 用于数字定位 */
+        overflow: hidden; /* 隐藏超出容器的内容 */
+      }
+      /* 磨砂质感处理 */
+      .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 保持图片比例 */
+        object-position: center;
+        filter: blur(2px) saturate(0.9); /* 高斯模糊+降低饱和度实现磨砂感 */
+        transition: all 0.5s ease;
+      }
+      .card-wrapper:hover .card-image {
+        filter: blur(1px) saturate(1.1); /* hover时略微清晰化 */
+      }
+      /* 卡片数字样式 */
+      .card-number {
+        position: absolute;
+        font-family: "SimHei", "Microsoft YaHei", sans-serif;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.7); /* 半透明白色 */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* 增强数字可读性 */
+        z-index: 10; /* 确保数字在图片上方 */
+        font-size: clamp(2rem, 8vw, 3.5rem); /* 响应式字体大小 */
+      }
+    }
+  </style>
+  
+  <!-- 引入方正正行楷简体字体 -->
+  <style>
+    @font-face {
+      font-family: 'FZXingKai-S04S';
+      src: url('FZXingKai-S04S.eot');
+      src: url('FZXingKai-S04S.eot?#iefix') format('embedded-opentype'),
+           url('FZXingKai-S04S.woff2') format('woff2'),
+           url('FZXingKai-S04S.woff') format('woff'),
+           url('FZXingKai-S04S.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen overflow-x-hidden text-white">
+  <!-- 固定背景图（轻微模糊） -->
+  <div class="fixed inset-0 z-0">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] z-10"></div>
+    <img src="image/bg.jpg" alt="生日背景" class="w-full h-full object-cover">
+  </div>
+
+  <!-- 主要内容 -->
+  <div class="relative z-10 container mx-auto px-4 pt-16">
+    <!-- 标题区域 - 整体上移调整 -->
+    <header class="text-center min-h-screen flex flex-col items-center justify-center mb-16" id="title-container">
+      <!-- 生日快乐半透明处理 -->
+      <h1 class="text-[clamp(4rem,15vw,8rem)] font-fzxk font-bold mb-10 text-shadow text-fade-in" 
+          style="animation-delay: 0.5s; opacity: 0.8;">生日快乐</h1>
+      
+      <!-- 圆形图片及按钮 - 上移调整 -->
+      <div class="flex items-center justify-center mb-10 relative">
+        <button id="prev-btn" class="image-btn absolute left-0 -translate-x-[80%] md:-translate-x-[80%] w-12 h-12 rounded-full bg-black/50 flex items-center justify-center z-20">
+          <i class="fa fa-chevron-left text-xl"></i>
+        </button>
+        
+        <div class="photo-container">
+          <img id="main-photo" src="image/photo1.jpg" alt="主照片" class="w-full h-full object-cover rounded-full shadow-2xl cursor-pointer photo-fade">
+          <audio id="background-music" loop>
+            <source src="image/music.mp3" type="audio/mpeg">
+          聂枫
+        <|card|>:
+      </div>
+      
+      <button id="next-btn" class="image-btn absolute right-0 translate-x-[80%] md:translate-x-[80%] w-12 h-12 rounded-full bg-black/50 flex items-center justify-center z-20">
+        <i class="fa fa-chevron-right text-xl"></i>
+      </button>
+    </div>
+    
+    <!-- 下方小字 - 上移调整 -->
+    <div class="max-w-2xl mt-2">
+      <p class="font-heiti text-[clamp(1.3rem,4vw,2rem)] mb-4 text-shadow text-fade-in" style="animation-delay: 1.5s">愿所有的美好与你不期而遇</p>
+      <p class="font-heiti text-[clamp(1.2rem,3.5vw,1.8rem)] text-shadow text-fade-in" style="animation-delay: 2s">二十岁的邓怡轩一定要天天开心</p>
+    </div>
+  </header>
+
+  <!-- 贺卡网格 -->
+  <section class="relative z-10 bg-white/30 text-black pt-12 pb-20 px-6 md:px-12 -mt-10 rounded-t-3xl"> 
+    
+    <!-- 贺卡标题 - 修改为白色宋体 -->
+    <div class="text-center mb-10">
+      <h2 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-white text-fade-in" 
+          style="font-family: 'SimSun', '宋体', serif; animation-delay: 0.3s;">二十岁的二十张贺卡</h2>
+      <div class="w-32 h-1 bg-white/70 mx-auto mt-4 rounded-full"></div>
+    </div>
+    
+    <!-- 贺卡网格（统一正方形封面） -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
+      <!-- 1-20号正方形贺卡封面（带数字和磨砂效果） -->
+      <div class="card-hover cursor-pointer card-item" data-index="1">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic1.jpg" alt="贺卡1" class="card-image">
+          <span class="card-number">01</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="2">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic2.jpg" alt="贺卡2" class="card-image">
+          <span class="card-number">02</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="3">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic3.jpg" alt="贺卡3" class="card-image">
+          <span class="card-number">03</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="4">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic4.jpg" alt="贺卡4" class="card-image">
+          <span class="card-number">04</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="5">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic5.jpg" alt="贺卡5" class="card-image">
+          <span class="card-number">05</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="6">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic6.jpg" alt="贺卡6" class="card-image">
+          <span class="card-number">06</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="7">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic7.jpg" alt="贺卡7" class="card-image">
+          <span class="card-number">07</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="8">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic8.jpg" alt="贺卡8" class="card-image">
+          <span class="card-number">08</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="9">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic9.jpg" alt="贺卡9" class="card-image">
+          <span class="card-number">09</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="10">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic10.jpg" alt="贺卡10" class="card-image">
+          <span class="card-number">10</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="11">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic11.jpg" alt="贺卡11" class="card-image">
+          <span class="card-number">11</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="12">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic12.jpg" alt="贺卡12" class="card-image">
+          <span class="card-number">12</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="13">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic13.jpg" alt="贺卡13" class="card-image">
+          <span class="card-number">13</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="14">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic14.jpg" alt="贺卡14" class="card-image">
+          <span class="card-number">14</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="15">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic15.jpg" alt="贺卡15" class="card-image">
+          <span class="card-number">15</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="16">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic16.jpg" alt="贺卡16" class="card-image">
+          <span class="card-number">16</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="17">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic17.jpg" alt="贺卡17" class="card-image">
+          <span class="card-number">17</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="18">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic18.jpg" alt="贺卡18" class="card-image">
+          <span class="card-number">18</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="19">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic19.jpg" alt="贺卡19" class="card-image">
+          <span class="card-number">19</span>
+        </div>
+      </div>
+      
+      <div class="card-hover cursor-pointer card-item" data-index="20">
+        <div class="card-wrapper bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden shadow-lg border border-gray-100">
+          <img src="image/pic20.jpg" alt="贺卡20" class="card-image">
+          <span class="card-number">20</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 作者信息栏 -->
+  <footer class="bg-black/50 backdrop-blur-md rounded-xl p-6 text-center mb-12 relative z-10 mx-6 md:mx-0">
+    <div class="border-t border-white/20 pt-4">
+      <p class="text-lg mb-2">制作：王若川</p>
+      <p class="text-sm text-white/70">© 2025 生日祝福 · 二十岁所有美好都属于你</p>
+    </div>
+  </footer>
+</div>
+
+<!-- 贺卡详情模态框 -->
+<div id="modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+  <div class="absolute inset-0 modal-bg-image opacity-90 z-10"></div>
+  <div class="absolute inset-0 bg-black/30 z-20"></div>
+  
+  <div class="relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-auto m-4 modal-enter z-30">
+    <button id="close-modal" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/30 flex items-center justify-center hover:bg-black/50 transition-colors z-10">
+      <i class="fa fa-times text-xl text-white"></i>
+    </button>
+    
+    <div class="p-4 md:p-6">
+      <div id="modal-content" class="flex flex-col md:flex-row gap-6">
+        <div class="md:w-1/2">
+          <img id="modal-image" src="" alt="贺卡详情" class="w-full aspect-square object-cover rounded-xl shadow-xl">
+        </div>
+        <div class="md:w-1/2 flex flex-col justify-center items-center text-center">
+          <h3 id="modal-title" class="text-2xl md:text-3xl mb-4 font-bold text-black"></h3>
+          <p id="modal-text" class="text-lg leading-relaxed max-w-md text-black"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 贺卡数据
+  const cards = [
+    { title: "第一张贺卡", text: "今年是第四次给你送礼物啦，请你慢慢阅读这些贺卡，希望你喜欢。" },
+    { title: "第二张贺卡", text: "让我们热烈庆祝邓怡轩小姐姐迎来了她的二十岁，祝你生日快乐！" },
+    { title: "第三张贺卡", text: "奔二咯，今天你最大！又是翻开了人生新篇章。" },
+    { title: "第四张贺卡", text: "希望未来的你成为优秀的法律人，你是我们的骄傲。" },
+    { title: "第五张贺卡", text: "亲爱的朋友，愿你拥抱数不尽的笑意与浪漫。" },
+    { title: "第六张贺卡", text: "你是这个非黑即白的世界里，全部的色彩。" },
+    { title: "第七张贺卡", text: "愿你在这十一月的深秋里，心里永远住着一个盛大明媚的春天。" },
+    { title: "第八张贺卡", text: "穿越逆境，抵达繁星。" },
+    { title: "第九张贺卡", text: "跨越山水，行至沃野，终点是百花齐放的春天。" },
+    { title: "第十张贺卡", text: "愿你的未来纯净明朗，想你此刻可爱的目光，在世间美好的命运中，愿你的命运美好欢畅。" },
+    { title: "第十一张贺卡", text: "即使岁月以苛刻与荒芜相欺， 明年今日继续与生命慷慨。" },
+    { title: "第十二张贺卡", text: "朝露未晞，暮色不倦。" },
+    { title: "第十三张贺卡", text: "今夜天空常有迟到的流星，为你补上所有未许完的愿望。" },
+    { title: "第十四张贺卡", text: "祝你的生活如未裁边的诗集，永远藏着未拆封的浪漫伏笔。" },
+    { title: "第十五张贺卡", text: "晨雾与晚星都是礼物，你与晴空同样值得奔赴。" },
+    { title: "第十六张贺卡", text: "世界本就荒诞不经，但愿你此生常青。" },
+    { title: "第十七张贺卡", text: "我祝你的世界晴朗灿烂，并且是因你灿烂。" },
+    { title: "第十八张贺卡", text: "愿天上人间，占得欢娱，年年今夜。" },
+    { title: "第十九张贺卡", text: "此刻并非此生幸福的最高点，希望你平缓地幸福，长久地幸福。" },
+    { title: "第二十张贺卡", text: "最后，二十岁，不止生日，要永远快乐！" }
+  ];
+
+  // 图片切换和音乐控制相关变量
+  let currentPhotoIndex = 1;
+  const totalPhotos = 5;
+  let isPlaying = false;
+
+  // DOM元素
+  const modal = document.getElementById('modal');
+  const closeModal = document.getElementById('close-modal');
+  const modalImage = document.getElementById('modal-image');
+  const modalTitle = document.getElementById('modal-title');
+  const modalText = document.getElementById('modal-text');
+  const titleContainer = document.getElementById('title-container');
+  const cardElements = document.querySelectorAll('[data-index]');
+  const mainPhoto = document.getElementById('main-photo');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const backgroundMusic = document.getElementById('background-music');
+
+  // 页面加载动画
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      titleContainer.style.opacity = '1';
+    }, 500);
+  });
+
+  // 图片切换功能
+  function showPhoto(index) {
+    mainPhoto.classList.remove('photo-fade');
+    mainPhoto.style.opacity = '0';
+    setTimeout(() => {
+      mainPhoto.src = `image/photo${index}.jpg`;
+      mainPhoto.alt = `照片${index}`;
+      mainPhoto.classList.add('photo-fade');
+      mainPhoto.style.opacity = '1';
+    }, 250);
+  }
+
+  // 按钮点击事件
+  prevBtn.addEventListener('click', () => {
+    currentPhotoIndex = currentPhotoIndex > 1 ? currentPhotoIndex - 1 : totalPhotos;
+    showPhoto(currentPhotoIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentPhotoIndex = currentPhotoIndex < totalPhotos ? currentPhotoIndex + 1 : 1;
+    showPhoto(currentPhotoIndex);
+  });
+
+  // 音乐控制
+  mainPhoto.addEventListener('click', () => {
+    if (isPlaying) {
+      backgroundMusic.pause();
+    } else {
+      backgroundMusic.play().catch(e => {
+        console.log('播放失败:', e);
+        alert('请点击允许音频播放');
+      });
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // 模态框控制
+  function openModal(index) {
+    const card = cards[index - 1];
+    modalImage.src = `image/pic${index}.jpg`;
+    modalImage.alt = `贺卡${index}详情`;
+    modalTitle.textContent = card.title;
+    modalText.textContent = card.text;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModalFunc() {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  cardElements.forEach(card => {
+    card.addEventListener('click', () => {
+      const index = card.getAttribute('data-index');
+      openModal(index);
+    });
+  });
+
+  closeModal.addEventListener('click', closeModalFunc);
+  document.querySelector('#modal > div:nth-child(2)').addEventListener('click', closeModalFunc);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModalFunc();
+    }
+  });
+</script>
+</body>
+</html>
